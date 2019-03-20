@@ -1,6 +1,7 @@
 from __future__ import print_function
 # for downloading images
 import urllib
+import urlfetch
 # google auth
 import pickle
 import os.path
@@ -61,11 +62,31 @@ def main():
         link = 'Link: https://docs.google.com/presentation/d/' + PRESENTATION_ID + '/edit#slide=id.' + (slide.get('objectId'))
         print(link)
 
+        # Didn't work
         # link to thumbnail
         # Slides.Presentations.Pages.getThumbnail(presentation, slide.get('objectId'), {'thumbnailProperties.thumbnailSize': 'LARGE'})
-        thumbnail = slide.getThumbnail()
+        # thumbnail = slide.getThumbnail('contentUrl')
+        
+        # JS Draft Implementation
+        # presentation = SlidesApp.openById(presentationId)
+        # presentation.getSlides().forEach(function(slide, i) {
+        #     slide = presentation.getSlides()[]
+        #     var thumbnail = Slides.Presentations.Pages.getThumbnail(presentationId, slide.getObjectId(), {'thumbnailProperties.thumbnailSize': 'LARGE'})
+            
+        #     var response = UrlFetchApp.fetch(thumbnail.contentUrl)
+        #     var blob = response.getBlob()
+        #     blob.setName('slide' + (i + 1) + '.png')
+        #     var file = DriveApp.createFile(blob)
+        #     Logger.log('Created file "%s" for slide number %s', file.getName(), i + 1)
+        #     })
+        # }
+
+        # thumbnail = slide.get(presentation, slide.get('objectId'))
+        thumbnail = slide.getThumbnail('contentUrl')
+        # response = urlfetch.get(thumbnail.contentUrl())
 
         # urllib.urlretrieve('http://example.com/file.ext', '/path/to/dir/filename.ext')
+        urllib.urlretrieve(thumbnail, path)
 
 if __name__ == '__main__':
     main()
