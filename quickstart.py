@@ -1,9 +1,15 @@
 from __future__ import print_function
+# for downloading images
+import urllib
+# google auth
 import pickle
 import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+
+# HELPFUL
+# https://stackoverflow.com/questions/31662455/how-to-download-google-slides-as-images
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/presentations.readonly']
@@ -41,16 +47,25 @@ def main():
         presentationId=PRESENTATION_ID).execute()
     slides = presentation.get('slides')
 
+    path = '/users/kjwilson/documents/dev/suprez_slides/slide_deck'
+
     print('The presentation contains {} slides:'.format(len(slides)))
     for i, slide in enumerate(slides):
         print('- Slide #{} contains {} elements.'.format(
             i + 1, len(slide.get('pageElements'))))
         print('- Slide #{} id is : {}'.format(
             i + 1, (slide.get('objectId'))
+
         ))
+        # link to exact slide page
         link = 'Link: https://docs.google.com/presentation/d/' + PRESENTATION_ID + '/edit#slide=id.' + (slide.get('objectId'))
         print(link)
 
+        # link to thumbnail
+        # Slides.Presentations.Pages.getThumbnail(presentation, slide.get('objectId'), {'thumbnailProperties.thumbnailSize': 'LARGE'})
+        thumbnail = slide.getThumbnail()
+
+        # urllib.urlretrieve('http://example.com/file.ext', '/path/to/dir/filename.ext')
 
 if __name__ == '__main__':
     main()
