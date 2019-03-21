@@ -81,8 +81,11 @@ def main():
         #     })
         # }
 
+        presentation = service.presentations().get(
+        presentationId=PRESENTATION_ID).execute()
+    slides = presentation.get('slides')
         # thumbnail = slide.get(presentation, slide.get('objectId'))
-        thumbnail = slide.getThumbnail('contentUrl')
+        thumbnail = service.presentation.get(slides.get('contentUrl')
         # response = urlfetch.get(thumbnail.contentUrl())
 
         # urllib.urlretrieve('http://example.com/file.ext', '/path/to/dir/filename.ext')
