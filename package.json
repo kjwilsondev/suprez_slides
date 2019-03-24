@@ -1,23 +1,17 @@
 {
-  "name": "suprez_slides",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "suprez",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sadboykj/suprez_slides.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sadboykj/suprez_slides/issues"
-  },
-  "homepage": "https://github.com/sadboykj/suprez_slides#readme",
   "dependencies": {
-    "gapi-client": "0.0.3",
-    "googleapis": "^27.0.0"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-handlebars": "^3.0.2",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
   }
 }
