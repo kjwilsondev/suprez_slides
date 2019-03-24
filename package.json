@@ -2,9 +2,8 @@
   "name": "suprez",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "main": "server.js",
+  
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "^2.6.9",
