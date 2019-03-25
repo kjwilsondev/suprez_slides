@@ -5,12 +5,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./controllers/users');
 
 const app = express();
 
-// view engine setup
+// VIEWS
 app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'layout',
@@ -28,7 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+require('./controllers/index')(app);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
