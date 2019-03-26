@@ -2,7 +2,7 @@ module.exports = function(app) {
 
     /* GET homepage */
     app.get('/', function(req, res, next) {
-        res.render('index', { title: 'Suprez-Slides' });
+        res.render('index.hbs', { title: 'Suprez-Slides' });
     });
 
     /* GET slide link form */
