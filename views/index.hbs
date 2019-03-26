@@ -3,16 +3,12 @@
     <video autoplay id="myVideo">
         <source src="/images/suprez-vid.mp4" type="video/mp4">
     </video>
-    <script>
-        document.getElementById('suprez-vid').play();
-        console.log(document.getElementById('suprez-vid').play());
-    </script>
 
 </div>
 
 <div class="title vertical-center">
 
-    <div class="container text-center">
+    <div class="container text-center" color="white">
         <h1>Suprez</h1>
 
         <a href="/prez/new">
@@ -23,3 +19,17 @@
     </div>
       
 </div>
+
+<script>
+    /*let vid = document.getElementById('myVid');
+
+    window.onload=function(){
+        vid.play();
+    };*/
+
+    setTimeout(function(){
+        let vid = document.getElementById('myVid');
+        document.getElementById('myVid').play();
+        conosle.log("countdown")
+    },3000);
+</script>
