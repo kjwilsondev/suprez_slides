@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        {{!-- <link rel='stylesheet' href='/stylesheets/style.css' /> --}}
+        {{!-- Bootstrap CSS --}}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    
+    <body>
+        
+        {{!-- {{> navbar}} --}}
+
+        <div class="title vertical-center">
+
+            <div class="container text-center">
+                <h1>Google Slide Link:</h1>
+
+                <div class="input-group mb-3">
+                    <form action="/prez" method="post">
+                        <div class="form-group">
+                            <label for="prezTitle">Suprezentation Title</label>
+                            <input type="text" class="form-group" id="prez-title" aria-describedby="emailHelp" placeholder="Title" name="title">
+                            <small id="titleHelp" class="form-text text-muted">Dashboard Feature Coming Soon!</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="prezLink">Link</label>
+                            <input type="text" class="form-control" id="prez-link" placeholder="Password" name="link">
+                            <small id="titleHelp" class="form-text text-muted">ex: https://docs.google.com/presentation/d/presentationid/edit?usp=sharing</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

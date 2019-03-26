@@ -9,6 +9,12 @@ const usersRouter = require('./controllers/users');
 
 const app = express();
 
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+
+// DATABASE
+require('./data/suprez-db');
+
 // VIEWS
 app.engine('hbs', hbs({
     extname: 'hbs',
@@ -27,7 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// BODY PARSER
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
+
 require('./controllers/index')(app);
+require('./controllers/prezents')(app);
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

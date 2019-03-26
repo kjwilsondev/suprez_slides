@@ -1,22 +1,18 @@
 module.exports = function(app) {
 
     /* GET homepage */
-    app.get('/', function(req, res, next) {
-        res.render('index.hbs', { title: 'Suprez-Slides' });
+    app.get('/', function(req, res) {
+        res.render('index', { title: 'Suprez-Slides' });
     });
 
-    /* GET slide link form */
-    app.get('/prez/new', function(req, res, next) {
-        res.render('slide-link');
-    });
-
-    app.post('/prez/new', (req, res, next) => {
-        // link = new Presentation(req.params.link);
-        console.log("link");
+    /* GET prez-new form */
+    app.get('/prez/new', function(req, res) {
+        console.log("DID YOU MAKE IT???")
+        res.render('prez-new');
     });
 
     /* GET presentation */
-    app.get('/prez', function(req, res, next) {
+    app.get('/prez', function(req, res) {
         res.render('prez');
     });
 };
